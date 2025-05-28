@@ -88,3 +88,14 @@ jobs:
           DB_USERNAME: laravel
           DB_PASSWORD: password
         run: ./vendor/bin/pest
+
+      - name: Deploy to server if tests pass
+        if: success()
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          script: |
+            cd /ruta/de/tu/app
+            ./deploy.sh
