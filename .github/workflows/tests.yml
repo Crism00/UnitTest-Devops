@@ -93,9 +93,9 @@ jobs:
         if: success()
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.DEPLOY_HOST }}
-          username: ${{ secrets.DEPLOY_USER }}
+          host: "18.220.233.224"
+          username: "ubuntu"
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            cd /ruta/de/tu/app
+            cd /home/ubuntu/UnitTest-Devops
             ./deploy.sh
