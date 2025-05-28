@@ -95,7 +95,7 @@ jobs:
         with:
           host: "18.220.233.224"
           username: "ubuntu"
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/ubuntu/UnitTest-Devops
             ./deploy.sh
